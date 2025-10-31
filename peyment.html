@@ -1,3 +1,5 @@
+--- START OF MODIFIED FILE: aaina_payment.html ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -346,7 +348,7 @@
             document.querySelectorAll('.payment-option').forEach(option => {
                 option.classList.remove('active');
             });
-            event.target.classList.add('active');
+            event.currentTarget.classList.add('active');
             
             // Show relevant payment section
             document.querySelectorAll('.upi-section').forEach(section => {
@@ -356,18 +358,18 @@
         }
         
         function completePayment() {
-            // In a real app, you would verify payment here
-            // For demo, we'll just proceed to success
+            // Hum yahan payment verify karne ke bajaye, seedhe aage badh rahe hain
             nextStep(3);
             
-            // Update user premium status
+            // User ka premium status update kar rahe hain localStorage mein
             let user = JSON.parse(localStorage.getItem('aainaCurrentUser')) || {};
             user.isPremium = true;
             localStorage.setItem('aainaCurrentUser', JSON.stringify(user));
         }
         
         function goToApp() {
-            window.location.href = 'aaina_main.html';
+            // **CHANGE:** User ko vapas homepage (index.html) par bhej rahe hain
+            window.location.href = 'index.html';
         }
         
         // Initialize
@@ -377,3 +379,4 @@
     </script>
 </body>
 </html>
+--- END OF MODIFIED FILE: aaina_payment.html ---
